@@ -1,0 +1,33 @@
+p#notice = notice
+
+p
+  strong First name:
+  = @profile.first_name
+p
+  strong Last name:
+  = @profile.last_name
+p
+  strong Country:
+  = @profile.country
+p
+  strong Occupation:
+  = @profile.occupation
+p
+  strong Specialization:
+  = @profile.specialization
+p
+  strong Phone number:
+  = @profile.phone_number
+p
+  strong Age:
+  = @profile.age
+p
+  strong Years of commitment:
+  = @profile.years_of_commitment
+p
+  strong Date of birth:
+  = @profile.date_of_birth
+
+= link_to 'Edit', edit_profile_path(@profile)
+'|
+= link_to 'Back', profiles_path

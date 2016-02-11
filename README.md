@@ -32,4 +32,13 @@ Instructions on Installing postgress can be found [here](https://www.moncefbelya
 4. Check with someone on dev to get a valid `application.yml` file for env vars
 5. Start up the local server => `$ ./dev_server.sh`
 6. Visit the homepage at: `http://localhost:3000`, or Admin homepabe at `http://localhost:3000/admin` ( Login with email: admin@example.com, password: password )
-    
+
+
+### Integration Testing
+
+The Continous Integration testing has status has shown above under Circle CI. However, to run these test on the development environment:
+
+  - Unit/Integration test: We are using Rspec => from inside the root folder of the project(on your terminal), run `$ rspec`
+  
+  - View/Feature test: We are using Cucumber and Capybara => from inside the root folder of the project(on your terminal), run `$ rake cucumber`
+   

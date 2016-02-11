@@ -2,6 +2,12 @@
 
 An online consulting platform targeted at Nigerian entrepreneurs and eventually Nigerian businesses as a whole. We link intelligent Nigerian-Americans with Nigerian businesses for mutual benefit.
 
+### Circle CI:
+
+Master: [![Circle CI](https://circleci.com/gh/SundayAdefila/ikeora/tree/master.svg?style=svg&circle-token=c524bb3f1d7191222b2ae6b11aeb653d121d9c8a)](https://circleci.com/gh/SundayAdefila/ikeora/tree/master)
+
+Dev: [![Circle CI](https://circleci.com/gh/SundayAdefila/ikeora/tree/dev.svg?style=svg&circle-token=c524bb3f1d7191222b2ae6b11aeb653d121d9c8a)](https://circleci.com/gh/SundayAdefila/ikeora/tree/dev)
+
 ### Dependencies
 
 To be able to run this application on local machines, the following is needed to be installed ( if already not )

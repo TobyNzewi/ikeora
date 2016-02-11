@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 20160129152754) do
   create_table "profiles", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "email"
     t.string   "country"
     t.string   "occupation"
     t.string   "specialization"

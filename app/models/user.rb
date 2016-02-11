@@ -5,8 +5,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
 
-  has_one :profile
+  has_one :profile, :dependent => :destroy
 
+  after_create :create_profile
+  after_update :update_profile_email, :if => :email_changed?
 
   # for facebook omniauth sign-in
   def self.from_omniauth(auth)
@@ -22,6 +24,16 @@ class User < ActiveRecord::Base
       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
         user.email = data["email"] if user.email.blank?
       end
+    end
+  end
+
+  def create_profile
+    Profile.create(email: self.email, user: self)
+  end
+
+  def update_profile_email
+    unless profile.email == self.email
+      profile.update_attribute(:email, self.email)
     end
   end
 end

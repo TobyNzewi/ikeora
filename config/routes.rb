@@ -7,9 +7,10 @@ Rails.application.routes.draw do
   get "/profile/show" => "profiles#show"
   get "/profile/edit" => "profiles#edit"
   put "/profile/update" => "profiles#update"
+  patch "/profile/update" => "profiles#update"
 
   authenticated :user do
-    root 'profiles#show', as: :authenticated_root
+    root 'home#dashboard', as: :authenticated_root
   end
 
   root 'home#index'

@@ -27,6 +27,10 @@ RSpec.describe ProfilesController, type: :routing do
       expect(:put => "/profile/update").to route_to("profiles#update")
     end
 
+    it "routes to #update via PATCH" do
+      expect(:patch => "/profile/update").to route_to("profiles#update")
+    end
+
     it "does not route to #destroy" do
       expect(:delete => "/profile/destroy").not_to be_routable
     end

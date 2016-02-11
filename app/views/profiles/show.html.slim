@@ -28,6 +28,6 @@ p
   strong Date of birth:
   = @profile.date_of_birth
 
-= link_to 'Edit', edit_profile_path(@profile)
+= link_to 'Edit', profile_edit_path
 '|
-= link_to 'Back', profiles_path
+= link_to 'Dashboard', authenticated_root_path

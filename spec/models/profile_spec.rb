@@ -52,6 +52,27 @@ RSpec.describe Profile, type: :model do
         expect{ @profile.save }.not_to change(Profile, :count)
         expect(@profile.errors[:phone_number]).to be_present
       end
+
+      it "should check for the presence of account_type" do
+        @profile.reload
+        @profile.account_type = nil
+        expect(@profile).not_to be_valid
+        expect{ @profile.save }.not_to change(Profile, :count)
+        expect(@profile.errors[:account_type]).to be_present
+      end
+
+      it "should ensure that the account type is a valid type from the admin created types" do
+        @profile.reload
+        new_account_type = ""
+        loop do
+          new_account_type = Faker::Lorem.word
+          break if AccountType.all_valid_types.exclude? new_account_type
+        end
+        @profile.account_type = new_account_type
+        expect(@profile).not_to be_valid
+        expect{ @profile.save }.not_to change(Profile, :count)
+        expect(@profile.errors[:account_type]).to be_present
+      end
     end
   end
 

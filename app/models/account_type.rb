@@ -5,4 +5,8 @@ class AccountType < ActiveRecord::Base
   validates_presence_of :name, :description
 
   accepts_nested_attributes_for :permissions, allow_destroy: true
+
+  def self.all_valid_types
+    all.select(:name).map(&:name)
+  end
 end

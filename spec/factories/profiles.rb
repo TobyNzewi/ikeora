@@ -9,5 +9,6 @@ FactoryGirl.define do
     phone_number        { Faker::PhoneNumber.phone_number }
     years_of_commitment { Faker::Number.between(2, 5) }
     date_of_birth       { Faker::Date.backward(99) }
+    account_type        { create_list(:account_type, 4).last.name }
   end
 end

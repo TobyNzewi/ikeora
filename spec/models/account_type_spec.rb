@@ -24,4 +24,14 @@ RSpec.describe AccountType, type: :model do
       expect{ FactoryGirl.create(:account_type) }.to change(AccountType, :count).by 1
     end
   end
+
+  describe "#all_valid_types" do
+    it "should return the names of all account types available in an array" do
+      names = Faker::Lorem.words(5)
+      names.each{ |name| FactoryGirl.create(:account_type, name: name) }
+      valid_types = AccountType.all_valid_types
+      expect(valid_types).to eq names
+      expect(valid_types).to be_an Array
+    end
+  end
 end

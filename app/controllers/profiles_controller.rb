@@ -39,7 +39,7 @@ class ProfilesController < InheritedResources::Base
   def profile_params
     params.require(:profile).permit(:first_name, :last_name, :country, :occupation, :specialization,
                                     :phone_number, :age, :years_of_commitment, :date_of_birth, :user_id,
-                                    :email
+                                    :email, :account_type
     )
   end
 end
